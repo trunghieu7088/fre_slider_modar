@@ -1,0 +1,239 @@
+.fre-profile-slider-container
+{
+    width:100%;
+    padding:50px 15px;    
+    padding:50px 0px;    
+    background-color:#ffffff;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.fre-profile-slider-list-wrapper
+{
+    padding:10px 5px;    
+    position:relative;    
+}
+.fre-profile-slider-title
+{
+    text-align: center;
+    font-weight:400;
+    padding:0;
+    margin:0;
+    margin-bottom:20px;
+    font-size:38px;
+    /* border:1px solid blue;*/
+}
+.fre-profile-slider-list
+{
+    background-color: #ffffff;   
+    padding:10px;     
+    margin-top:40px;
+}
+
+
+.fre-profile-slider-card
+{    
+    background-color: #ffffff;    
+    /*box-shadow: 0 5px 30px rgba(7, 36, 86, .075);*/
+    box-shadow: 0px 4px 8px rgba(188, 207, 219, 0.65);
+    border-radius: 10px;
+    position: relative;       
+
+    padding-left:0px;
+    padding-right:0px;     
+}   
+
+.fre-profile-slider-card-header
+{
+    display:flex;
+    justify-content: space-between;
+    padding:20px 20px;
+}
+
+.fre-profile-slider-card-header-rating
+{
+    border-top:5px solid rgb(31, 189, 189);
+    font-size:18px;    
+}
+
+.fre-profile-slider-card-header-rating i
+{
+    color:#fec600;
+    margin-right:5px;
+}
+
+.fre-profile-slider-card-header-rating span
+{
+    color:#fec600;
+}
+
+.fre-profile-slider-card-header-rating .review-text
+{    
+    font-size:14px;
+    color:rgba(15,23,39,.45);
+}
+
+.fre-profile-slider-card-header-project-worked
+{
+    font-size:18px;
+}
+.fre-profile-slider-card-header-project-worked i
+{
+    color: rgb(31, 189, 189);
+}
+
+.fre-profile-slider-card-body
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;        
+}
+.fre-profile-slider-card-avatar-container
+{
+    margin-top:20px;    
+}   
+
+.fre-profile-slider-card-avatar-container img
+{
+    width:130px;
+    height:130px;
+    border-radius: 50%;
+}
+
+.fre-profile-slider-card-display-name-container
+{
+    margin-top:10px;    
+}
+
+.fre-profile-slider-card-display-name-container a
+{    
+    color:#2c3e50;
+    font-size:1.8em;
+}
+
+.fre-profile-slider-card-display-name-container a:hover
+{
+    color:#2c3e50;
+}
+
+
+.fre-profile-slider-card-profession-container p
+{
+    font-size:1.2em;
+    color:rgb(31, 189, 189);
+    text-align: center;
+    height:35px;
+    padding:0px 5px;
+}
+
+
+.fre-profile-slider-card-basic-info-container
+{
+    margin-top:10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.fre-profile-slider-card-location-skills
+{
+    font-size:1.1em;
+    
+}
+
+.fre-profile-slider-card-location-skills p
+{
+   padding:0px 10px;
+}
+
+.fre-profile-slider-card-location-skills .list-skill-items
+{
+    height:35px !important;
+}
+
+.fre-profile-slider-card-bio-container
+{
+    margin-top:5px;
+    font-size:1.1em;
+    color: #d3d3d3;
+    text-align: left;    
+    height:4.3em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    padding:0px 25px;
+}
+
+.fre-profile-slider-card-footer
+{   
+    margin-top:20px;
+    border-top: 1px solid rgba(7, 36, 86, .075);         
+    padding:20px 0px !important;   
+    display: flex;
+    justify-content: space-between;
+}
+
+.fre-profile-slider-card-footer .custom-rate-hour
+{
+    border-left:4px solid rgb(31, 189, 189);
+    padding-left:10px;
+    font-size:1.3em;
+    font-weight: 600;
+    color:rgb(31, 189, 189);
+}
+.fre-profile-slider-card-footer .custom-year-exp
+{
+    padding-right:10px;
+    font-size:1.3em;
+}
+
+.fre-profile-slider-next-area
+{
+    position:absolute;    
+    border-radius: 50%;
+    box-shadow: 0 5px 30px rgba(7, 36, 86, .125);
+    width:60px;
+    height:60px;
+    top:50%;
+    right:5px;
+    z-index:9999;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0px;
+    cursor: pointer;
+}
+
+.fre-profile-slider-next-area i
+{
+    font-size: 18px;
+    color: rgba(7, 36, 86, .35);
+}
+
+.fre-profile-slider-prev-area
+{
+    position:absolute;    
+    border-radius: 50%;
+    box-shadow: 0 5px 30px rgba(7, 36, 86, .125);
+    width:60px;
+    height:60px;
+    top:50%;
+    left:5px;
+    z-index:9999;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0px;
+    cursor: pointer;
+}
+
+.fre-profile-slider-prev-area i
+{
+    font-size: 18px;
+    color: rgba(7, 36, 86, .35);
+}
