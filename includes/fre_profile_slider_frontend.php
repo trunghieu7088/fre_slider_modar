@@ -57,7 +57,7 @@ function fre_profile_slider_init()
 
                                     <!-- profession -->
                                     <div class="fre-profile-slider-card-profession-container">
-                                        <p><?php echo $fre_profile_item->et_professional_title; ?></p>
+                                        <p><?php // echo $fre_profile_item->et_professional_title; ?> Garage</p>
                                     </div>
 
                                     <!-- bio -->
@@ -69,7 +69,7 @@ function fre_profile_slider_init()
                                     <div class="fre-profile-slider-card-basic-info-container">
                                         <div class="fre-profile-slider-card-location-skills">
                                             <p><strong><i class="fa fa-map-marker"></i></strong> <?php echo $fre_profile_item->location; ?></p>
-                                           <!-- <p class="list-skill-items"><strong><i class="fa fa-plus-square"></i> <?php echo carbon_get_theme_option('fre_profile_slider_skill_text'); ?>:</strong> <?php echo $fre_profile_item->skills; ?></p>-->
+                                            <p class="list-skill-items"><?php echo $fre_profile_item->skills; ?></p>
                                         </div>
                                     </div>
 
@@ -78,9 +78,9 @@ function fre_profile_slider_init()
 
                                 <!-- card footer -->
                                 <div class="fre-profile-slider-card-footer">
-                                    <div class="custom-rate-hour">
+                                   <!-- <div class="custom-rate-hour">
                                        <?php echo $fre_profile_item->hourly_rate; ?>
-                                    </div>
+                                    </div> -->
 
                                     <div class="custom-year-exp">
                                         <i class="fa fa-briefcase"></i> <?php echo $fre_profile_item->exp; ?>

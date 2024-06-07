@@ -13,7 +13,7 @@ function fre_profile_slider_settings()
     ->set_page_menu_position(6)
     ->add_tab('General', array(
       Field::make('text', 'fre_profile_slider_number_of_profiles', __('Number of profiles to show'))->set_default_value(10)->set_width(25),
-      Field::make('select', 'fre_profile_slider_sort_by', __('Sort by'))->set_options(array('createdDate' => 'Created date', 'highrating' => 'High Rating', 'number_project_completed' => 'Number of completed projects'))->set_width(25),
+      Field::make('select', 'fre_profile_slider_sort_by', __('Sort by'))->set_options(array('createdDate' => 'Created date', 'highrating' => 'High Rating', 'number_project_completed' => 'Number of completed projects','number_of_bid' => 'Number of bidding'))->set_width(25),
       Field::make('select', 'fre_profile_slider_order', __('Order'))->set_options(array('asc' => 'Asc', 'desc' => 'Desc'))->set_width(25),
       Field::make('select', 'fre_profile_slider_skin', __('Skin'))->set_options(array('light' => 'light', 'dark' => 'dark'))->set_width(25),
       Field::make('radio', 'fre_profile_slider_autoplay', __('Sider Autoplay'))

@@ -12,13 +12,21 @@ function convert_fre_profile_slider($fre_profile)
     $total_project_works=get_post_meta($fre_profile->ID,'total_projects_worked',true) ? get_post_meta($fre_profile->ID,'total_projects_worked',true) : '0';
     $converted_fre_profile['total_projects_worked']=$total_project_works.' '.carbon_get_theme_option('fre_profile_slider_pj_worked_text');
     $converted_fre_profile['total_projects_worked_count']=(int)$total_project_works;
+
+    if(carbon_get_theme_option('fre_profile_slider_sort_by')=='number_of_bid')
+    {
+        $total_bid_counts=fre_slider_count_bid_of_freelancer($profile_owner->ID);
+        $converted_fre_profile['total_projects_worked']=$total_bid_counts.' '.carbon_get_theme_option('fre_profile_slider_pj_worked_text');
+        $converted_fre_profile['total_bid_counts']=(int)$total_bid_counts;
+    }
+   
     
     $converted_fre_profile['bio']=wp_trim_words($fre_profile->post_content,18,'..');
 
     $location=wp_get_post_terms($fre_profile->ID,'country',array( 'fields' => 'names'));
     $converted_fre_profile['location']=$location[0];
 
-    $skills=wp_get_post_terms($fre_profile->ID,'skill',array( 'fields' => 'names'));
+    $skills=wp_get_post_terms($fre_profile->ID,'project_category',array( 'fields' => 'names'));
     $converted_fre_profile['skills']=implode(', ',$skills);
 
     $currency = ae_get_option('currency', array(
@@ -64,7 +72,8 @@ function get_active_profiles_for_slider()
     }
 
     $args_profiles=array('post_type' => 'fre_profile',
-                        'posts_per_page' =>  $number_of_profiles,           
+                       // 'posts_per_page' =>  $number_of_profiles,           
+                       'posts_per_page' =>  -1,           
                         'post_status'   => 'publish',
                         'order'=>  $order,
                         'orderby'=> 'date',
@@ -118,8 +127,22 @@ function get_active_profiles_for_slider()
         }
        
     }
+
+    if($sort_by=='number_of_bid')
+    {
+        if($order=='asc')
+        {
+            usort($fre_profile_list,'compareBidCount_Worked_ASC');
+        }
+        if($order=='desc')
+        {
+            usort($fre_profile_list,'compareBidCount_Worked_DESC');
+        }
+       
+    }
+    $filter_fre_profile_list=array_slice($fre_profile_list,0,$number_of_profiles);
     
-    return $fre_profile_list;
+    return $filter_fre_profile_list;
 }
 
 function compareRatingScoreASC($item1,$item2)
@@ -142,4 +165,33 @@ function compareNumberPJ_Worked_ASC($item1,$item2)
 function compareNumberPJ_Worked_DESC($item1,$item2)
 {
     return $item2->total_projects_worked_count - $item1->total_projects_worked_count;
+}
+
+function compareBidCount_Worked_ASC($item1,$item2)
+{
+    return $item1->total_bid_counts - $item2->total_bid_counts;
+}
+
+function compareBidCount_Worked_DESC($item1,$item2)
+{
+    return $item2->total_bid_counts - $item1->total_bid_counts;
+}
+
+
+function fre_slider_count_bid_of_freelancer($user_id)
+{
+    $bid_count_query=array('post_status'=>'publish',
+                            'author' => $user_id,
+                            'post_type'=>'bid'
+                        );
+    $bid_count=new WP_Query($bid_count_query);
+    if($bid_count->have_posts())
+    {   
+        return $bid_count->found_posts;
+        wp_reset_postdata();
+    }else
+    {
+       return 0; 
+    } 
+
 }
