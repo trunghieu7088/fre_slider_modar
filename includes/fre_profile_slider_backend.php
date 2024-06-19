@@ -86,7 +86,11 @@ function get_active_profiles_for_slider()
                             ),                         
                         );
     
-   
+    if($sort_by=='number_project_completed')    
+    {
+        $args_profiles['meta_key']='total_projects_worked';
+        $args_profiles['orderby']='meta_value_num';              
+    }
 
     $profiles_query=new WP_Query($args_profiles);
 
@@ -115,18 +119,7 @@ function get_active_profiles_for_slider()
         }
         
     }
-    if($sort_by=='number_project_completed')    
-    {
-        if($order=='asc')
-        {
-            usort($fre_profile_list,'compareNumberPJ_Worked_ASC');
-        }
-        if($order=='desc')
-        {
-            usort($fre_profile_list,'compareNumberPJ_Worked_DESC');
-        }
-       
-    }
+   
 
     if($sort_by=='number_of_bid')
     {
